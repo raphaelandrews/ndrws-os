@@ -10,10 +10,10 @@ const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
                 className="
                     text-primary
                     p-3
-                    bg-[hsla(0,0%,100%,.05)]
+                    bg-frosted-white/5
                     border
                     rounded
-                    border-[hsla(0,0%,78%,.1)]
+                    border-frosted-grey/10
                     backdrop-blur-xl
                 "
             >

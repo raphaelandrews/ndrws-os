@@ -6,7 +6,7 @@ const Workspace = () => {
             className="
                 w-screen
                 max-w-full 
-                h-[calc(100vh-3rem)] 
+                h-taskbar-total-height
                 max-h-full 
                 p-8
             "

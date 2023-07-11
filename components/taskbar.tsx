@@ -1,8 +1,6 @@
 import Image from "next/image";
 import logo from "@/public/logo.svg"
 
-//shadow-[inset_0_0_0_10px_rgba(255,255,255,0.08)]
-
 const Taskbar = () => {
     return (
         <section
@@ -11,16 +9,17 @@ const Taskbar = () => {
                 justify-between
                 items-center
                 w-11/12
-                h-10
+                h-taskbar-height
                 mx-auto
-                mt-2
+                mt-taskbar-margin-top
                 py-2
                 px-3
-                bg-[hsla(0,0%,100%,.05)]
+                bg-frosted-white/5
                 border
                 rounded-full
-                border-[hsla(0,0%,78%,.1)]
+                border-frosted-grey/10
                 backdrop-blur-3xl
+                shadow-md
             "
         >
                 <Image src={logo} alt="ndrwsOS" width={24} height={24} />
