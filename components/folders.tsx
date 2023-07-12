@@ -2,10 +2,10 @@
 
 import { Folder as FolderIcon, User } from "lucide-react";
 import Folder from "./folder";
-import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
+import { DropTargetMonitor, useDrag, useDrop } from "react-dnd";
 import { useRef, useState, useEffect } from "react";
 import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
 
 interface FolderData {
   Icon: JSX.Element;
@@ -107,7 +107,7 @@ const Folders: React.FC = () => {
   };
 
   const [isNumRows, setIsNumRows] = useState(1);
-  const [isNumRowsisNumCols, setIsNumCols] = useState(1);
+  const [isNumCols, setIsNumCols] = useState(1);
   const [isNumPositions, setIsNumPositions] = useState(6);
 
   useEffect(() => {
@@ -132,12 +132,12 @@ const Folders: React.FC = () => {
   const gridStyles = {
     display: "grid",
     justifyContent: "start",
-    gridTemplateColumns: `repeat(${isNumRows}, minmax(0, 1fr))`,
+    gridTemplateColumns: `repeat(${isNumCols}, minmax(0, 1fr))`,
     gridTemplateRows: `repeat(${isNumRows}, minmax(0, 1fr))`,
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider backend={TouchBackend}>
       <div style={gridStyles}>
         {Array(isNumPositions)
           .fill(null)
