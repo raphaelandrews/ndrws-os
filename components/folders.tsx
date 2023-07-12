@@ -39,11 +39,6 @@ const folderData: FolderData[] = [
   },
 ];
 
-let numColumns = Math.ceil((window.innerWidth - 64) / 94);
-let numRows = Math.ceil((window.innerHeight - 106) / 94);
-
-const numPositions = numColumns * numRows;
-
 const Folders: React.FC = () => {
   const [folders, setFolders] = useState<FolderData[]>(folderData);
 
@@ -111,14 +106,20 @@ const Folders: React.FC = () => {
     );
   };
 
-  const gridStyles = {
-    display: "grid",
-    justifyContent: "start",
-    gridTemplateColumns: `repeat(${numColumns}, minmax(0, 1fr))`,
-    gridTemplateRows: `repeat(${numRows}, minmax(0, 1fr))`,
-  };
+  const [isNumRows, setIsNumRows] = useState(1);
+  const [isNumRowsisNumCols, setIsNumCols] = useState(1);
+  const [isNumPositions, setIsNumPositions] = useState(6);
 
   useEffect(() => {
+    let numColumns = Math.ceil((window.innerWidth - 64) / 94);
+    let numRows = Math.ceil((window.innerHeight - 106) / 94);
+
+    const numPositions = numColumns * numRows;
+
+    setIsNumCols(numColumns);
+    setIsNumRows(numRows);
+    setIsNumPositions(numPositions);
+
     const updateGridDimensions = () => {
       numColumns = Math.ceil((window.innerWidth - 64) / 94)
       numRows = Math.ceil((window.innerHeight - 106) / 94);
@@ -128,10 +129,17 @@ const Folders: React.FC = () => {
     return () => window.removeEventListener("resize", updateGridDimensions);
   }, []);
 
+  const gridStyles = {
+    display: "grid",
+    justifyContent: "start",
+    gridTemplateColumns: `repeat(${isNumRows}, minmax(0, 1fr))`,
+    gridTemplateRows: `repeat(${isNumRows}, minmax(0, 1fr))`,
+  };
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div style={gridStyles}>
-        {Array(numPositions)
+        {Array(isNumPositions)
           .fill(null)
           .map((_, index) => (
             <FolderItem key={index} folder={folders[index]} index={index} />
