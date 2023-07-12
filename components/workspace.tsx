@@ -13,8 +13,6 @@ const Workspace = () => {
                 p-8
             "
         >
-            <AboutApp />
-            <Test />
             <Folders />
         </div>
     );

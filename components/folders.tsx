@@ -5,7 +5,6 @@ import Folder from "./folder";
 import { DropTargetMonitor, useDrag, useDrop } from "react-dnd";
 import { useRef, useState, useEffect } from "react";
 import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
 
 interface FolderData {
@@ -107,9 +106,9 @@ const Folders: React.FC = () => {
     );
   };
 
-  const [isNumRows, setIsNumRows] = useState(1);
-  const [isNumCols, setIsNumCols] = useState(1);
-  const [isNumPositions, setIsNumPositions] = useState(6);
+  const [isNumCols, setIsNumCols] = useState(2);
+  const [isNumRows, setIsNumRows] = useState(4);
+  const [isNumPositions, setIsNumPositions] = useState(8);
 
   useEffect(() => {
     let numColumns = Math.ceil((window.innerWidth - 64) / 94);

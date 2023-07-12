@@ -1,7 +1,9 @@
-import { cn } from '@/lib/utils'
-import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+
+import './globals.css'
+import { cn } from '@/lib/utils'
+import { AboutApp } from '@/components/apps/about-app'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +25,7 @@ export default function RootLayout({
           inter.className
         )}
       >
+        <AboutApp />
         {children}
       </body>
     </html>

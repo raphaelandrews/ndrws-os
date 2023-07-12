@@ -1,11 +1,23 @@
+import { useAboutApp } from "@/hooks/use-about-app";
+
 interface FolderProps {
     Icon: React.ReactNode;
     label: string;
 }
 
 const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
+    const aboutApp = useAboutApp();
+
     return (
-        <div className="grid place-items-center gap-2 m-3 hover:cursor-pointer">
+        <div
+            className="
+                grid 
+                place-items-center 
+                gap-2 
+                m-3 
+                hover:cursor-pointer
+            "
+        >
             <span
                 className="
                     text-primary
@@ -28,6 +40,7 @@ const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
             >
                 {label}
             </span>
+            <div onClick={() => aboutApp.onOpen()}>Abrir</div>
         </div>
     );
 }
