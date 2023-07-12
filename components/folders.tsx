@@ -6,6 +6,7 @@ import { DropTargetMonitor, useDrag, useDrop } from "react-dnd";
 import { useRef, useState, useEffect } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
 
 interface FolderData {
   Icon: JSX.Element;
@@ -137,7 +138,7 @@ const Folders: React.FC = () => {
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    <DndProvider backend={TouchBackend} options={{ enableMouseEvents: true }}>
       <div style={gridStyles}>
         {Array(isNumPositions)
           .fill(null)
@@ -150,4 +151,3 @@ const Folders: React.FC = () => {
 };
 
 export default Folders;
-
