@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "bg-[url('../assets/images/mesh-background-sm.png')]",
+          
           inter.className
         )}
       >

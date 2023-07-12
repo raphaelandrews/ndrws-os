@@ -5,15 +5,15 @@ interface FolderProps {
 
 const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
     return (
-        <div className="grid place-items-center gap-2 hover:cursor-pointer">
+        <div className="grid place-items-center gap-2 m-3 hover:cursor-pointer">
             <span
                 className="
                     text-primary
                     p-3
-                    bg-[hsla(0,0%,100%,.05)]
+                    bg-frosted-white/5
                     border
                     rounded
-                    border-[hsla(0,0%,78%,.1)]
+                    border-frosted-grey/10
                     backdrop-blur-xl
                 "
             >
