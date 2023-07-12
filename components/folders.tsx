@@ -62,10 +62,13 @@ const Folders: React.FC = () => {
 
   const FolderItem: React.FC<FolderItemProps> = ({ folder, index }) => {
     const [{ isDragging }, drag] = useDrag<
-      { type: string; index: number }, void, { isDragging: boolean }
+      { type: string; index: number },
+      void,
+      { isDragging: boolean }
     >({
       type: "folder",
       item: { type: "folder", index },
+      canDrag: () => folder != null,
       collect: (monitor) => ({
         isDragging: monitor.isDragging(),
       }),
@@ -94,8 +97,7 @@ const Folders: React.FC = () => {
     });
 
     const opacity = isDragging ? 0.4 : 1;
-    const backgroundColor = isOver && canDrop ?
-      "rgba(0, 0, 0, 0.2)" : "transparent";
+    const backgroundColor = isOver && canDrop ? "rgba(0, 0, 0, 0.2)" : "transparent";
 
     const dropRef = useRef<HTMLDivElement>(null);
     drag(drop(dropRef));
@@ -140,3 +142,4 @@ const Folders: React.FC = () => {
 };
 
 export default Folders;
+
