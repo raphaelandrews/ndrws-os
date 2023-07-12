@@ -39,9 +39,9 @@ const folderData: FolderData[] = [
   },
 ];
 
-let numColumns = Math.ceil(window.innerWidth / 94);
+let numColumns = Math.ceil((window.innerWidth - 64) / 94);
 let numRows = Math.ceil((window.innerHeight - 106) / 94);
-console.log(numRows, window.innerHeight);
+
 const numPositions = numColumns * numRows;
 
 const Folders: React.FC = () => {
@@ -61,7 +61,9 @@ const Folders: React.FC = () => {
   }
 
   const FolderItem: React.FC<FolderItemProps> = ({ folder, index }) => {
-    const [{ isDragging }, drag] = useDrag<{ type: string; index: number }, void, { isDragging: boolean }>({
+    const [{ isDragging }, drag] = useDrag<
+      { type: string; index: number }, void, { isDragging: boolean }
+    >({
       type: "folder",
       item: { type: "folder", index },
       collect: (monitor) => ({
@@ -71,7 +73,10 @@ const Folders: React.FC = () => {
 
     const [{ canDrop, isOver }, drop] = useDrop({
       accept: "folder",
-      drop: (item: { type: string; index: number }, monitor: DropTargetMonitor) => {
+      drop: (
+        item: { type: string; index: number },
+        monitor: DropTargetMonitor
+      ) => {
         const dragIndex = item.index;
         const hoverIndex = index;
 
@@ -89,7 +94,8 @@ const Folders: React.FC = () => {
     });
 
     const opacity = isDragging ? 0.4 : 1;
-    const backgroundColor = isOver && canDrop ? "rgba(0, 0, 0, 0.2)" : "transparent";
+    const backgroundColor = isOver && canDrop ?
+      "rgba(0, 0, 0, 0.2)" : "transparent";
 
     const dropRef = useRef<HTMLDivElement>(null);
     drag(drop(dropRef));
@@ -111,12 +117,13 @@ const Folders: React.FC = () => {
   };
 
   useEffect(() => {
-    const updateNumRows = () => {
-      numRows = Math.ceil(window.innerHeight / 94);
+    const updateGridDimensions = () => {
+      numColumns = Math.ceil((window.innerWidth - 64) / 94)
+      numRows = Math.ceil((window.innerHeight - 106) / 94);
     };
 
-    window.addEventListener("resize", updateNumRows);
-    return () => window.removeEventListener("resize", updateNumRows);
+    window.addEventListener("resize", updateGridDimensions);
+    return () => window.removeEventListener("resize", updateGridDimensions);
   }, []);
 
   return (
@@ -133,5 +140,3 @@ const Folders: React.FC = () => {
 };
 
 export default Folders;
-
-
