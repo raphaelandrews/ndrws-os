@@ -5,7 +5,7 @@ interface FolderProps {
 
 const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
     return (
-        <div className="grid place-items-center gap-2 hover:cursor-pointer">
+        <div className="grid place-items-center gap-2 m-3 hover:cursor-pointer">
             <span
                 className="
                     text-primary
