@@ -1,6 +1,4 @@
 import Folders from "@/components/folders";
-import { AboutApp } from "@/components/apps/about-app";
-import Test from "./test";
 
 const Workspace = () => {
     return (
@@ -13,8 +11,6 @@ const Workspace = () => {
                 p-8
             "
         >
-            <AboutApp />
-            <Test />
             <Folders />
         </div>
     );

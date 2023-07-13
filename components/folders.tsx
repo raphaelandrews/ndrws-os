@@ -5,7 +5,6 @@ import Folder from "./folder";
 import { DropTargetMonitor, useDrag, useDrop } from "react-dnd";
 import { useRef, useState, useEffect } from "react";
 import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
 
 interface FolderData {
@@ -16,27 +15,11 @@ interface FolderData {
 const folderData: FolderData[] = [
   {
     Icon: <FolderIcon width={16} height={16} />,
-    label: "Projects1",
+    label: "Projects",
   },
   {
     Icon: <User width={16} height={16} />,
-    label: "Profile2",
-  },
-  {
-    Icon: <FolderIcon width={16} height={16} />,
-    label: "Projects3",
-  },
-  {
-    Icon: <User width={16} height={16} />,
-    label: "Profile4",
-  },
-  {
-    Icon: <FolderIcon width={16} height={16} />,
-    label: "Projects5",
-  },
-  {
-    Icon: <User width={16} height={16} />,
-    label: "Profile6",
+    label: "About",
   },
 ];
 
@@ -101,15 +84,22 @@ const Folders: React.FC = () => {
     return (
       <div ref={dropRef} style={{ opacity, backgroundColor }}>
         <div style={{ cursor: "move" }}>
-          {folder && <Folder Icon={folder.Icon} label={folder.label} />}
+          {folder && (
+            <>
+              <Folder
+                Icon={folder.Icon}
+                label={folder.label}
+              />
+            </>
+          )}
         </div>
       </div>
     );
   };
 
-  const [isNumRows, setIsNumRows] = useState(1);
-  const [isNumCols, setIsNumCols] = useState(1);
-  const [isNumPositions, setIsNumPositions] = useState(6);
+  const [isNumCols, setIsNumCols] = useState(2);
+  const [isNumRows, setIsNumRows] = useState(4);
+  const [isNumPositions, setIsNumPositions] = useState(8);
 
   useEffect(() => {
     let numColumns = Math.ceil((window.innerWidth - 64) / 94);

@@ -1,12 +1,35 @@
+import { useAboutApp } from "@/hooks/use-about-app";
+import { useProjectsApp } from "@/hooks/use-projects-app";
+
 interface FolderProps {
     Icon: React.ReactNode;
     label: string;
 }
 
 const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
+    const aboutApp = useAboutApp();
+    const projectsApp = useProjectsApp();
+
+    const openApp = (app: string) => {
+        if (app === "Projects") {
+            projectsApp.onToggle();
+        } else if (app === "About") {
+            aboutApp.onToggle();
+        }
+    }
+
     return (
-        <div className="grid place-items-center gap-2 m-3 hover:cursor-pointer">
-            <span
+        <div
+            className="
+                grid 
+                place-items-center 
+                gap-2 
+                m-3 
+                hover:cursor-pointer
+            "
+            onClick={() => openApp(label)}
+        >
+            <div
                 className="
                     text-primary
                     p-3
@@ -18,8 +41,8 @@ const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
                 "
             >
                 {Icon}
-            </span>
-            <span
+            </div>
+            <div
                 className="
                     text-sm
                     text-primary
@@ -27,7 +50,7 @@ const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
                 "
             >
                 {label}
-            </span>
+            </div>
         </div>
     );
 }
