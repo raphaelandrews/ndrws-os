@@ -30,20 +30,26 @@ export const App: React.FC<AppProps> = ({
                     <div
                         className="
                             fixed
-                            top-0
-                            left-0
-                            w-[200px]
-                            h-[200px]
+                            top-1/2
+                            left-1/2          
                         "
                     >
-
-                        <div onClick={() => onChange(false)}>
-                            Close
-                        </div>
-                        <div className="absolute text-white p-4 bg-blue-500 z-10">
-                            <h2>{title}</h2>
-                            <p>{description}</p>
-                            {children}
+                        <div
+                            className="
+                                w-[200px]  
+                                h-[200px] 
+                                -translate-y-2/4 
+                                -translate-x-2/4
+                            "
+                        >
+                            <div onClick={() => onChange(false)}>
+                                Close
+                            </div>
+                            <div className="absolute text-white p-4 bg-blue-500 z-10">
+                                <h2>{title}</h2>
+                                <p>{description}</p>
+                                {children}
+                            </div>
                         </div>
                     </div>
                 </Draggable>

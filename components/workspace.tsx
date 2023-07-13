@@ -1,6 +1,4 @@
 import Folders from "@/components/folders";
-import { AboutApp } from "@/components/apps/about-app";
-import Test from "./test";
 
 const Workspace = () => {
     return (

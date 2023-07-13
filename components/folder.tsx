@@ -1,4 +1,5 @@
 import { useAboutApp } from "@/hooks/use-about-app";
+import { useProjectsApp } from "@/hooks/use-projects-app";
 
 interface FolderProps {
     Icon: React.ReactNode;
@@ -7,6 +8,15 @@ interface FolderProps {
 
 const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
     const aboutApp = useAboutApp();
+    const projectsApp = useProjectsApp();
+
+    const openApp = (app: string) => {
+        if (app === "Projects") {
+            projectsApp.onToggle();
+        } else if (app === "About") {
+            aboutApp.onToggle();
+        }
+    }
 
     return (
         <div
@@ -17,8 +27,9 @@ const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
                 m-3 
                 hover:cursor-pointer
             "
+            onClick={() => openApp(label)}
         >
-            <span
+            <div
                 className="
                     text-primary
                     p-3
@@ -30,8 +41,8 @@ const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
                 "
             >
                 {Icon}
-            </span>
-            <span
+            </div>
+            <div
                 className="
                     text-sm
                     text-primary
@@ -39,8 +50,7 @@ const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
                 "
             >
                 {label}
-            </span>
-            <div onClick={() => aboutApp.onOpen()}>Abrir</div>
+            </div>
         </div>
     );
 }

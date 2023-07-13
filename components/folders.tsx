@@ -15,27 +15,11 @@ interface FolderData {
 const folderData: FolderData[] = [
   {
     Icon: <FolderIcon width={16} height={16} />,
-    label: "Projects1",
+    label: "Projects",
   },
   {
     Icon: <User width={16} height={16} />,
-    label: "Profile2",
-  },
-  {
-    Icon: <FolderIcon width={16} height={16} />,
-    label: "Projects3",
-  },
-  {
-    Icon: <User width={16} height={16} />,
-    label: "Profile4",
-  },
-  {
-    Icon: <FolderIcon width={16} height={16} />,
-    label: "Projects5",
-  },
-  {
-    Icon: <User width={16} height={16} />,
-    label: "Profile6",
+    label: "About",
   },
 ];
 
@@ -100,7 +84,14 @@ const Folders: React.FC = () => {
     return (
       <div ref={dropRef} style={{ opacity, backgroundColor }}>
         <div style={{ cursor: "move" }}>
-          {folder && <Folder Icon={folder.Icon} label={folder.label} />}
+          {folder && (
+            <>
+              <Folder
+                Icon={folder.Icon}
+                label={folder.label}
+              />
+            </>
+          )}
         </div>
       </div>
     );
