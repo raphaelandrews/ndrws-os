@@ -36,8 +36,6 @@ export const App: React.FC<AppProps> = ({
                     >
                         <div
                             className="
-                                w-[200px]  
-                                h-[200px] 
                                 -translate-y-2/4 
                                 -translate-x-2/4
                             "

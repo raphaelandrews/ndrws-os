@@ -31,7 +31,7 @@ const Component = ({ zIndex, onClick }: ComponentProps) => {
             style={{ zIndex }}
             onClick={onClick}
         >
-            <AboutApp />(z-index: {zIndex})
+         
         </div>
     );
 };
