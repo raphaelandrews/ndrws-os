@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import Draggable from "react-draggable";
 
@@ -43,7 +43,7 @@ export const App: React.FC<AppProps> = ({
                             <div onClick={() => onChange(false)}>
                                 Close
                             </div>
-                            <div className="absolute text-white p-4 bg-blue-500 z-10">
+                            <div className="absolute text-white p-4">
                                 <h2>{title}</h2>
                                 <p>{description}</p>
                                 {children}

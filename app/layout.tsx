@@ -21,12 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          
+
           inter.className
         )}
       >
         <AppProvider />
-        {children}
+          {children}
       </body>
     </html>
   )
