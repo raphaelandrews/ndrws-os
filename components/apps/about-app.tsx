@@ -1,16 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import { App } from "@/components/ui/app";
-import { useAboutApp } from "@/hooks/use-about-app";
-import { useZIndex } from "@/hooks/use-z-index";
 import { useEffect } from "react";
 
-interface AboutAppProps {
-  zIndex: number;
-  onMouseDown: () => void;
-}
+import { SetAppIndex } from "@/types";
+import { useAboutApp } from "@/hooks/use-about-app";
+import { useZIndex } from "@/hooks/use-z-index";
+import { App } from "@/components/ui/app";
 
-export const AboutApp = ({ zIndex, onMouseDown }: AboutAppProps) => {
+export const AboutApp = ({ zIndex, onMouseDown }: SetAppIndex) => {
   const aboutApp = useAboutApp();
   const { setActiveIndex } = useZIndex();
 
@@ -26,7 +24,6 @@ export const AboutApp = ({ zIndex, onMouseDown }: AboutAppProps) => {
     >
       <App
         title="About"
-        description="This App is Open"
         isOpen={aboutApp.isOpen}
         onClose={aboutApp.onClose}
       >

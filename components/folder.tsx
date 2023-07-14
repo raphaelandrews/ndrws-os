@@ -1,20 +1,20 @@
+import { FolderProps } from "@/types";
 import { useAboutApp } from "@/hooks/use-about-app";
+import { useThisPcApp } from "@/hooks/use-this-pc-app";
 import { useProjectsApp } from "@/hooks/use-projects-app";
-
-interface FolderProps {
-    Icon: React.ReactNode;
-    label: string;
-}
 
 const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
     const aboutApp = useAboutApp();
     const projectsApp = useProjectsApp();
+    const thisPcApp = useThisPcApp();
 
     const openApp = (app: string) => {
         if (app === "Projects") {
             projectsApp.onToggle();
         } else if (app === "About") {
             aboutApp.onToggle();
+        } else if (app === "This PC") {
+            thisPcApp.onToggle();
         }
     }
 
@@ -46,6 +46,7 @@ const Folder: React.FC<FolderProps> = ({ Icon, label }) => {
                 className="
                     text-sm
                     text-primary
+                    text-center
                     font-light
                 "
             >

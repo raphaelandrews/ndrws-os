@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: ;
-    --foreground: ;
+    --background: 0 0% 6%;
+    --foreground: 0 0% 10%;
 
     --primary: 0 0% 100%;
 
@@ -21,6 +21,6 @@
 
 @layer base {
   body {
-    @apply bg-[url('/images/mesh-background-sm.png')] text-primary;
+    @apply bg-background text-primary;
   }
 }

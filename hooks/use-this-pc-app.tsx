@@ -2,7 +2,7 @@ import { create } from 'zustand';
 
 import { useAppStore } from '@/types';
 
-export const useAboutApp = create<useAppStore>((set) => ({
+export const useThisPcApp = create<useAppStore>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),

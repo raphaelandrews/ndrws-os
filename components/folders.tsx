@@ -1,6 +1,6 @@
 'use client'
 
-import { Folder as FolderIcon, User } from "lucide-react";
+import { Folder as FolderIcon, PcCase, User } from "lucide-react";
 import Folder from "./folder";
 import { DropTargetMonitor, useDrag, useDrop } from "react-dnd";
 import { useRef, useState, useEffect } from "react";
@@ -20,6 +20,10 @@ const folderData: FolderData[] = [
   {
     Icon: <User width={16} height={16} />,
     label: "About",
+  },
+  {
+    Icon: <PcCase width={16} height={16} />,
+    label: "This PC",
   },
 ];
 

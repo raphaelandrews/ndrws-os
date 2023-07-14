@@ -4,17 +4,17 @@
 import { useEffect } from "react";
 
 import { SetAppIndex } from "@/types";
-import { useProjectsApp } from "@/hooks/use-projects-app";
+import { useThisPcApp } from "@/hooks/use-this-pc-app";
 import { useZIndex } from "@/hooks/use-z-index";
 import { App } from "@/components/ui/app";
 
-export const ProjectsApp = ({ zIndex, onMouseDown }: SetAppIndex) => {
-  const projectsApp = useProjectsApp();
+export const ThisPcApp = ({ zIndex, onMouseDown }: SetAppIndex) => {
+  const thisPcApp = useThisPcApp();
   const { setActiveIndex } = useZIndex();
 
   useEffect(() => {
-    setActiveIndex(0)
-  }, [projectsApp.isOpen])
+    setActiveIndex(2)
+  }, [thisPcApp.isOpen])
 
   return (
     <div
@@ -24,10 +24,10 @@ export const ProjectsApp = ({ zIndex, onMouseDown }: SetAppIndex) => {
     >
       <App
         title="Projects"
-        isOpen={projectsApp.isOpen}
-        onClose={projectsApp.onClose}
+        isOpen={thisPcApp.isOpen}
+        onClose={thisPcApp.onClose}
       >
-        <h2>My projects</h2>
+        <h2>This PC</h2>
         {zIndex}
       </App>
     </div>
