@@ -1,19 +1,35 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import { App } from "@/components/ui/app";
-import { useAboutApp } from "@/hooks/use-about-app";
+import { useEffect } from "react";
 
-export const AboutApp = () => {
+import { SetAppIndex } from "@/types";
+import { useAboutApp } from "@/hooks/use-about-app";
+import { useZIndex } from "@/hooks/use-z-index";
+import { App } from "@/components/ui/app";
+
+export const AboutApp = ({ zIndex, onMouseDown }: SetAppIndex) => {
   const aboutApp = useAboutApp();
+  const { setActiveIndex } = useZIndex();
+
+  useEffect(() => {
+    setActiveIndex(1)
+}, [aboutApp.isOpen])
 
   return (
-    <App
-      title="About"
-      description="This App is Open"
-      isOpen={aboutApp.isOpen} 
-      onClose={aboutApp.onClose}
+    <div
+      className="relative"
+      style={{ zIndex }}
+      onMouseDown={onMouseDown}
     >
+      <App
+        title="About"
+        isOpen={aboutApp.isOpen}
+        onClose={aboutApp.onClose}
+      >
         <h2>Raphael Andrews</h2>
-    </App>
+        {zIndex}
+      </App>
+    </div>
   );
 };

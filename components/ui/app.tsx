@@ -1,18 +1,15 @@
-'use client'
+"use client"
 
+import Image from "next/image";
 import Draggable from "react-draggable";
+import { X } from "lucide-react";
 
-interface AppProps {
-    title: string;
-    description: string;
-    isOpen: boolean;
-    onClose: () => void;
-    children?: React.ReactNode;
-}
+import logo from "@/public/logo.png";
+import { AppProps } from "@/types";
+import { Button } from "@/components/ui/button";
 
 export const App: React.FC<AppProps> = ({
     title,
-    description,
     isOpen,
     onClose,
     children
@@ -26,7 +23,7 @@ export const App: React.FC<AppProps> = ({
     return (
         <>
             {isOpen && (
-                <Draggable>
+                <Draggable handle="#imHandle">
                     <div
                         className="
                             fixed
@@ -36,18 +33,66 @@ export const App: React.FC<AppProps> = ({
                     >
                         <div
                             className="
-                                w-[200px]  
-                                h-[200px] 
                                 -translate-y-2/4 
                                 -translate-x-2/4
                             "
                         >
-                            <div onClick={() => onChange(false)}>
-                                Close
+                            <div
+                                id="imHandle"
+                                className="
+                                    flex
+                                    justify-between
+                                    items-center
+                                    gap-4
+                                    w-full
+                                    p-4
+                                    bg-foreground
+                                    rounded-t-lg
+                                "
+                            >
+                                <div
+                                    className="
+                                        flex
+                                        justify-center
+                                        items-center
+                                    "
+                                >
+                                    <Image
+                                        src={logo}
+                                        alt={title}
+                                        width={16}
+                                        height={16}
+                                        className="pointer-events-none"
+                                    />
+
+                                    <h2
+                                        className="
+                                    text-sm
+                                    ml-2
+                                    "
+                                    >
+                                        {title}
+                                    </h2>
+                                </div>
+
+                                <Button
+                                    variant="ghost"
+                                    className="h-auto p-0"
+                                    onClick={() => onChange(false)}
+                                >
+                                    <X width={16} height={16} />
+                                </Button>
                             </div>
-                            <div className="absolute text-white p-4 bg-blue-500 z-10">
-                                <h2>{title}</h2>
-                                <p>{description}</p>
+
+                            <div
+                                className="
+                                    absolute 
+                                    w-full 
+                                    p-4
+                                    bg-foreground
+                                    rounded-b-lg
+                                "
+                            >
                                 {children}
                             </div>
                         </div>

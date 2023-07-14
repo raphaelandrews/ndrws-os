@@ -1,13 +1,8 @@
 import { create } from 'zustand';
 
-interface useProjectsAppProps {
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
-  onToggle: () => void;
-}
+import { useAppStore } from '@/types';
 
-export const useProjectsApp = create<useProjectsAppProps>((set) => ({
+export const useProjectsApp = create<useAppStore>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
