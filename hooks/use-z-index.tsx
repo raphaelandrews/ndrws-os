@@ -1,11 +1,11 @@
 import { create } from 'zustand';
 
-interface useIndexStore {
+interface useZIndexStore {
   activeIndex: number;
   setActiveIndex: (index: number) => void;
 }
 
-export const useIndex = create<useIndexStore>((set) => ({
+export const useZIndex = create<useZIndexStore>((set) => ({
   activeIndex: -1,
   setActiveIndex: (index: number) => set({ activeIndex: index }),
 }));

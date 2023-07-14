@@ -1,12 +1,12 @@
 "use client";
 
+import { useZIndex } from "@/hooks/use-z-index";
 import { ProjectsApp } from "@/components/apps/projects-app";
 import { AboutApp } from "@/components/apps/about-app";
 
-import { useIndex } from "@/hooks/use-index";
 
 export const AppProvider = () => {
-  const { activeIndex, setActiveIndex } = useIndex();
+  const { activeIndex, setActiveIndex } = useZIndex();
 
   const handleClick = (index: number) => {
     setActiveIndex(index);

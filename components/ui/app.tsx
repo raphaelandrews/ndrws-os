@@ -1,7 +1,6 @@
 "use client"
 
 import Draggable from "react-draggable";
-
 interface AppProps {
     title: string;
     description: string;

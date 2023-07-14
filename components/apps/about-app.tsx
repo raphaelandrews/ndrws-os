@@ -2,6 +2,8 @@
 
 import { App } from "@/components/ui/app";
 import { useAboutApp } from "@/hooks/use-about-app";
+import { useZIndex } from "@/hooks/use-z-index";
+import { useEffect } from "react";
 
 interface AboutAppProps {
   zIndex: number;
@@ -10,6 +12,11 @@ interface AboutAppProps {
 
 export const AboutApp = ({ zIndex, onMouseDown }: AboutAppProps) => {
   const aboutApp = useAboutApp();
+  const { setActiveIndex } = useZIndex();
+
+  useEffect(() => {
+    setActiveIndex(1)
+}, [aboutApp.isOpen])
 
   return (
     <div
