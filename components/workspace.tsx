@@ -1,4 +1,5 @@
 import Folders from "@/components/folders";
+import OpenApp from "@/hooks/use-open-apps";
 
 const Workspace = () => {
     return (
@@ -12,6 +13,7 @@ const Workspace = () => {
             "
         >
             <Folders />
+            <OpenApp />     
         </div>
     );
 }
