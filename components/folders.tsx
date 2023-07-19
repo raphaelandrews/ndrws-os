@@ -107,7 +107,7 @@ const Folders: React.FC = () => {
 
   useEffect(() => {
     let numColumns = Math.ceil((window.innerWidth - 64) / 94);
-    let numRows = Math.ceil((window.innerHeight - 106) / 94);
+    let numRows = Math.ceil(((window.innerHeight - 106) / 94) -1);
 
     const numPositions = numColumns * numRows;
 

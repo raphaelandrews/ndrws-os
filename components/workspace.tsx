@@ -1,10 +1,11 @@
 import Folders from "@/components/folders";
-import OpenApp from "@/hooks/use-open-apps";
+import AppTaskbar from "@/components/app-taskbar";
 
 const Workspace = () => {
     return (
         <div
             className="
+                relative
                 w-screen
                 max-w-full 
                 h-taskbar-total-height
@@ -13,7 +14,7 @@ const Workspace = () => {
             "
         >
             <Folders />
-            <OpenApp />     
+            <AppTaskbar />
         </div>
     );
 }

@@ -17,7 +17,9 @@ export interface FolderProps {
 
 export interface useAppStore {
     isOpen: boolean;
+    isMinimized: boolean;
     onOpen: () => void;
     onClose: () => void;
     onToggle: () => void;
+    onMinimize: () => void;
 }
